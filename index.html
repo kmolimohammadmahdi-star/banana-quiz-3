@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFD93D">
+
+  <!-- ═══════ سئو (SEO) ═══════ -->
+  <title>بانانا کوییز 🍌 | بازی کوییز آنلاین فارسی — کوییز موز</title>
+  <meta name="description" content="بانانا کوییز 🍌 — بازی کوییز آنلاین فارسی با ۴۵۰ سؤال در ۵ دستهٔ فوتبال، گیم، اطلاعات عمومی، زبان انگلیسی و ریاضی. ۱۵ سؤال، تایمر، پروندهٔ رنک موزی و رکورد شخصی. ساختهٔ محمد مهدی عدالتیان.">
+  <meta name="keywords" content="بانانا کوییز, کوییز موز, banana quiz, بازی کوییز, کوییز آنلاین, کوییز فارسی, بازی کوییز آنلاین, سوالات فوتبال, سوالات گیم, کوییز ریاضی, کوییز زبان انگلیسی, اطلاعات عمومی, آزمون آنلاین, کوییز موزی">
+  <meta name="author" content="محمد مهدی عدالتیان">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="W0X-_dUBAq4FoXCPMvNoxVKp32xB2efn2ET-RFwCxFA" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="بانانا کوییز">
+  <meta property="og:title" content="بانانا کوییز 🍌 — کوییز آنلاین فارسی">
+  <meta property="og:description" content="۴۵۰ سؤال در ۵ دسته: فوتبال، گیم، اطلاعات عمومی، زبان انگلیسی، ریاضی. لقبت رو بگیر و رنک موزت رو پیدا کن!">
+  <meta property="og:locale" content="fa_IR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="بانانا کوییز 🍌 — کوییز آنلاین فارسی">
+  <meta name="twitter:description" content="۴۵۰ سؤال در ۵ دسته: فوتبال، گیم، اطلاعات عمومی، زبان انگلیسی، ریاضی. لقبت رو بگیر و رنک موزت رو پیدا کن!">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "بانانا کوییز",
+    "alternateName": ["کوییز موز", "Banana Quiz", "بانانا کوییز آنلاین"],
+    "url": "/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "fa",
+    "description": "بازی کوییز آنلاین فارسی با ۴۵۰ سؤال در ۵ دستهٔ فوتبال، گیم، اطلاعات عمومی، زبان انگلیسی و ریاضی؛ ۱۵ سؤال تصادفی در هر بازی، تایمر، پروندهٔ رنک موزی و رکورد شخصی.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IRR" },
+    "author": { "@type": "Person", "name": "محمد مهدی عدالتیان" }
+  }
+  </script>
+  <!-- ═══════ پایان سئو ═══════ -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍌</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ═══════════ صفحهٔ ورود ═══════════ -->
+    <section id="screen-entry" class="screen">
+      <div class="center-head">
+        <div class="logo big wiggle">🍌</div>
+        <h1 class="title">کوییز موز</h1>
+        <p class="subtitle">برای ورود، شناسنامه‌ات را پر کن!</p>
+      </div>
+      <div class="card entry-card">
+        <label for="player-name">نام شما</label>
+        <input id="player-name" type="text" placeholder="مثلاً: علی" maxlength="30" autocomplete="off">
+        <label for="player-nick">لقب موزی شما</label>
+        <input id="player-nick" type="text" placeholder="مثلاً: کاپیتان موز" maxlength="30" autocomplete="off">
+        <p class="field-hint">لقب باید به «موز» ختم شود 🍌</p>
+        <p id="entry-error" class="error hidden" role="alert"></p>
+        <button id="btn-enter" class="btn primary">ورود به کوییز 🍌</button>
+      </div>
+    </section>
+
+    <!-- ═══════════ صفحهٔ خانه ═══════════ -->
+    <section id="screen-home" class="screen">
+      <div class="center-head">
+        <div class="logo big wiggle">🍌</div>
+        <h1 class="title">کوییز موز</h1>
+        <p class="welcome">سلام <b id="home-name"></b> (<span id="home-nick"></span>) 👋</p>
+      </div>
+      <div class="card home-card">
+        <div class="best-score" id="home-best">🏆 هنوز رکوردی ثبت نشده</div>
+        <button id="btn-start" class="btn primary big-btn">شروع کوییز</button>
+        <button id="btn-logout" class="btn ghost">تغییر بازیکن</button>
+        <p class="rules">تا ۱۵ سؤال تصادفی • ۴ گزینه • ۱۵ ثانیه برای هر سؤال<br>سؤال‌های جواب‌داده‌شده تکرار نمی‌شوند؛ با تغییر اسم یا لقب، بانکت دوباره پر می‌شود 🍌</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ صفحهٔ انتخاب دسته ═══════════ -->
+    <section id="screen-category" class="screen">
+      <div class="center-head">
+        <div class="logo wiggle">🗂️</div>
+        <h1 class="title">کدوم دسته؟</h1>
+        <p class="subtitle">یه دسته انتخاب کن؛ <b>۱۵ سؤال تصادفی</b> از اون دسته می‌گیری!</p>
+      </div>
+      <div class="cat-grid" id="cat-grid"></div>
+      <button id="btn-cat-back" class="btn ghost">بازگشت به خانه</button>
+    </section>
+
+    <!-- ═══════════ صفحهٔ سوال ═══════════ -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-top">
+        <div class="chip score-chip">امتیاز: <b id="quiz-score">۰</b></div>
+        <div class="progress-text" id="quiz-progress">سؤال ۱ از ۱۵</div>
+        <div class="chip nick-chip" id="quiz-nick">🍌</div>
+      </div>
+      <div class="progress-bar" aria-hidden="true"><div id="progress-fill"></div></div>
+      <div class="timer-row">
+        <div class="timer-bar" aria-hidden="true"><div id="timer-fill"></div></div>
+        <div class="timer-chip">⏱ <b id="timer-num">۱۵</b></div>
+      </div>
+      <div class="card question-card" id="question-card">
+        <h2 id="question-text"></h2>
+        <div id="options"></div>
+        <p id="explanation" class="explanation hidden"></p>
+        <div id="next-hint" class="next-hint hidden">
+          <span id="next-hint-text">سؤال بعدی…</span>
+          <div class="next-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ صفحهٔ پرونده (نتیجه) ═══════════ -->
+    <section id="screen-result" class="screen">
+      <div class="dossier">
+        <div class="dossier-tab">پروندهٔ بازیکن</div>
+        <div class="dossier-paper">
+          <span class="clip" aria-hidden="true">📎</span>
+          <span class="watermark" aria-hidden="true">🍌</span>
+          <div class="dossier-head">
+            <div class="file-no" id="file-no">شمارهٔ پرونده: MOZ-****</div>
+            <h2 class="dossier-title">🗂️ پروندهٔ عملکرد کوییز موز</h2>
+          </div>
+          <div class="rank-stamp r2" id="rank-stamp">موز رسیده 🍌</div>
+          <div class="rows">
+            <div class="row"><span class="label">نام و نام خانوادگی</span><span class="value" id="d-name">—</span></div>
+            <div class="row"><span class="label">لقب موزی</span><span class="value" id="d-nick">—</span></div>
+            <div class="row"><span class="label">تاریخ</span><span class="value" id="d-date">—</span></div>
+            <div class="row"><span class="label">دستهٔ سؤال‌ها</span><span class="value" id="d-cat">—</span></div>
+            <div class="row"><span class="label">پاسخ‌های درست</span><span class="value good" id="d-correct">—</span></div>
+            <div class="row"><span class="label">پاسخ‌های اشتباه</span><span class="value bad" id="d-wrong">—</span></div>
+            <div class="row"><span class="label">بدون پاسخ (اتمام وقت)</span><span class="value timeout" id="d-timeout">—</span></div>
+            <div class="row"><span class="label">امتیاز نهایی</span><span class="value score" id="d-score">—</span></div>
+            <div class="row"><span class="label">بهترین امتیاز (این دستگاه)</span><span class="value gold" id="d-best">—</span></div>
+          </div>
+          <p class="rank-msg" id="rank-msg"></p>
+          <details class="review">
+            <summary>🔎 جزئیات پاسخ‌ها</summary>
+            <ul id="review-list"></ul>
+          </details>
+          <div class="creator-stamp">تهیه‌کنندهٔ سایت<br><b>محمد مهدی عدالتیان</b></div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button id="btn-share" class="btn primary">اشتراک‌گذاری نتیجه 📤</button>
+        <button id="btn-again" class="btn secondary">دوباره 🔁</button>
+        <button id="btn-newplayer" class="btn ghost">بازیکن جدید</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <button id="audio-toggle" type="button" title="موزیک بانانا">🔊</button>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
